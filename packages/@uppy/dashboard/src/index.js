@@ -116,6 +116,7 @@ module.exports = class Dashboard extends Plugin {
       hideProgressAfterFinish: false,
       note: null,
       closeModalOnClickOutside: false,
+      closeModalOnComplete: null,
       disableStatusBar: false,
       disableInformer: false,
       disableThumbnailGenerator: false,
@@ -139,6 +140,7 @@ module.exports = class Dashboard extends Plugin {
 
     this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
+    this.closeModalOnTimeout = this.closeModalOnTimeout.bind(this)
     this.requestCloseModal = this.requestCloseModal.bind(this)
     this.isModalOpen = this.isModalOpen.bind(this)
 
@@ -501,6 +503,10 @@ module.exports = class Dashboard extends Plugin {
     })
   }
 
+  closeModalOnTimeout (ms = 0) {
+    setTimeout(this.requestCloseModal, ms)
+  }
+
   render (state) {
     const pluginState = this.getPluginState()
     const { files, capabilities } = state
@@ -685,6 +691,12 @@ module.exports = class Dashboard extends Plugin {
         thumbnailWidth: this.opts.thumbnailWidth
       })
     }
+
+    if (this.opts.closeModalOnComplete) {
+      this.uppy.on('complete', this.closeModalOnTimeout.bind(this, this.opts.closeModalOnComplete))
+    }
+
+    this.uppy.on('upload-started', this.closeModalOnTimeout.bind(this, 2000))
 
     this.discoverProviderPlugins()
 
