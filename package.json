@@ -97,7 +97,7 @@
     "test:build": "./bin/endtoend-build",
     "test:build-ci": "./bin/endtoend-build-ci",
     "test:prepare-ci": "npm-run-all --parallel --race test:registry test:build-ci",
-    "test:acceptance": "npm run test:prepare-ci && wdio test/endtoend/wdio.remote.conf.js",
+    "test:acceptance": "npm run test:prepare-ci && wdio test/endtoend/wdio.remote.conf.js --suite url-plugin",
     "test:acceptance:local": "npm run test:build && wdio test/endtoend/wdio.local.conf.js",
     "test:unit": "jest",
     "test:companion": "cd ./packages/@uppy/companion && npm run test",
