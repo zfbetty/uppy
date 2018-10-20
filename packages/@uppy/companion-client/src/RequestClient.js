@@ -26,7 +26,7 @@ module.exports = class RequestClient {
   }
 
   get headers () {
-    return Object.assign({}, this.defaultHeaders, this.opts.serverHeaders || {})
+    return new Headers(Object.assign({}, this.defaultHeaders, this.opts.serverHeaders || {}))
   }
 
   onReceiveResponse (response) {

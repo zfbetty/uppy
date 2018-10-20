@@ -100,6 +100,7 @@ module.exports = class Url extends Plugin {
   }
 
   addFile (url) {
+    this.uppy.info(`getMet-precall/${url}`, 'info', 10000)
     url = this.addProtocolToURL(url)
     if (!this.checkIfCorrectURL(url)) {
       this.uppy.log(`[URL] Incorrect URL entered: ${url}`)
@@ -107,7 +108,7 @@ module.exports = class Url extends Plugin {
       return
     }
 
-    this.uppy.info('getMet-call', 'info', 10000)
+    this.uppy.info(`getMet-call/${url}`, 'info', 10000)
     return this.getMeta(url)
       .then((meta) => {
         this.uppy.info('getMet-succ', 'info', 10000)
