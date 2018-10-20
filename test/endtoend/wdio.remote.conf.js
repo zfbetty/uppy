@@ -39,5 +39,8 @@ exports.config = Object.assign(base.config, {
   // commands. Instead, they hook themselves up into the test process.
   services: ['static-server', 'sauce', new CompanionService()],
   user: process.env.SAUCE_USERNAME,
-  key: process.env.SAUCE_ACCESS_KEY
+  key: process.env.SAUCE_ACCESS_KEY,
+  sauceConnectOpts: {
+    noSslBumpDomains: 'all'
+  }
 })

@@ -7,8 +7,6 @@ describe('File upload with URL plugin', () => {
   })
 
   it('should import  and upload a file completely with Url Plugin', () => {
-    browser.url('http://localhost:3020')
-    browser.pause(5000)
     // select url plugin
     browser.click(`.uppy-DashboardTab-btn[aria-controls=uppy-DashboardContent-panel--Url]`)
     // import set url value
@@ -19,6 +17,6 @@ describe('File upload with URL plugin', () => {
     // do the upload
     browser.waitForVisible('.uppy-u-reset.uppy-c-btn.uppy-c-btn-primary.uppy-StatusBar-actionBtn--upload')
     browser.click('.uppy-u-reset.uppy-c-btn.uppy-c-btn-primary.uppy-StatusBar-actionBtn--upload')
-    browser.waitForExist('.uppy-StatusBar.is-complete', 40000)
+    browser.waitForExist('.uppy-StatusBar.is-complete', 20000)
   })
 })
