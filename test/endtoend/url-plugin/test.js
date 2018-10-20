@@ -7,6 +7,8 @@ describe('File upload with URL plugin', () => {
   })
 
   it('should import  and upload a file completely with Url Plugin', () => {
+    browser.url('http://localhost:3020')
+    browser.pause(5000)
     // select url plugin
     browser.click(`.uppy-DashboardTab-btn[aria-controls=uppy-DashboardContent-panel--Url]`)
     // import set url value
