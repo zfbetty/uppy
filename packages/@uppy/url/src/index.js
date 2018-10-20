@@ -107,10 +107,10 @@ module.exports = class Url extends Plugin {
       return
     }
 
-    this.uppy.info('getMet-call', 'info', 4000)
+    this.uppy.info('getMet-call', 'info', 10000)
     return this.getMeta(url)
       .then((meta) => {
-        this.uppy.info('getMet-succ', 'info', 4000)
+        this.uppy.info('getMet-succ', 'info', 10000)
         const tagFile = {
           source: this.id,
           name: this.getFileNameFromUrl(url),
@@ -152,7 +152,7 @@ module.exports = class Url extends Plugin {
       .catch((err) => {
         this.uppy.log(err)
         this.uppy.info({
-          message: err,
+          message: 'meta-call-fail' + err,
           details: err
         }, 'error', 10000)
       })
