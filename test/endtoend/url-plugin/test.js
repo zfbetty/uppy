@@ -3,6 +3,8 @@ const testURL = 'http://localhost:4567/url-plugin'
 
 describe('File upload with URL plugin', () => {
   beforeEach(() => {
+    browser.url('http://localhost:3030')
+    browser.pause(4000)
     browser.url(testURL)
   })
 
