@@ -78,6 +78,7 @@ class CompanionService {
       })
 
       this.companion.on('error', console.error)
+      this.companion.stdout.pipe(process.stdout)
       this.companion.stderr.pipe(process.stderr)
       this.companion.on('exit', prematureExit)
     })

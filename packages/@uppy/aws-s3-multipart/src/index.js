@@ -248,10 +248,10 @@ module.exports = class AwsS3Multipart extends Plugin {
       fetch(file.remote.url, {
         method: 'post',
         credentials: 'include',
-        headers: {
+        headers: new Headers({
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-        },
+        }),
         body: JSON.stringify(Object.assign({}, file.remote.body, {
           protocol: 's3-multipart',
           size: file.data.size,

@@ -1,3 +1,6 @@
+const isEdge = navigator.userAgent.match(/Edge\/(\d+)/)
+if (isEdge) delete window.fetch
+
 require('es6-promise/auto')
 require('whatwg-fetch')
 const Uppy = require('@uppy/core')
