@@ -143,7 +143,11 @@ module.exports = class XHRUpload extends Plugin {
 
       if (timeout > 0) {
         if (aliveTimer) clearTimeout(aliveTimer)
-        aliveTimer = setTimeout(onTimedOut, timeout)
+        // Only check for timeouts if the browser supports upload progress reporting
+        const { capabilities } = uppy.getState()
+        if (capabilities.uploadProgress) {
+          aliveTimer = setTimeout(onTimedOut, timeout)
+        }
       }
     }
 
