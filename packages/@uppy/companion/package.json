@@ -29,6 +29,7 @@
     "companion": "./bin/companion"
   },
   "dependencies": {
+    "@babel/runtime": "^7.8.4",
     "@purest/providers": "1.0.1",
     "@uppy/fs-tail-stream": "1.2.0",
     "atob": "2.1.2",

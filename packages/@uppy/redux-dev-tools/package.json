@@ -21,6 +21,7 @@
     "url": "git+https://github.com/transloadit/uppy.git"
   },
   "peerDependencies": {
+    "@babel/runtime": "^7.8.4",
     "@uppy/core": "^1.0.0"
   }
 }

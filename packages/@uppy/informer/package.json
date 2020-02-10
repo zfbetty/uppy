@@ -23,6 +23,7 @@
     "url": "git+https://github.com/transloadit/uppy.git"
   },
   "dependencies": {
+    "@babel/runtime": "^7.8.4",
     "@uppy/utils": "file:../utils",
     "preact": "8.2.9"
   },

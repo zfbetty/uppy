@@ -21,6 +21,7 @@
     "url": "git+https://github.com/transloadit/uppy.git"
   },
   "dependencies": {
+    "@babel/runtime": "^7.8.4",
     "namespace-emitter": "^2.0.1"
   }
 }
